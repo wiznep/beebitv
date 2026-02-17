@@ -10,16 +10,16 @@ export default function DMCA() {
       {/* Page title */}
       <div className="mb-10">
         <div className="section-label">Legal</div>
-        <h1 className="text-3xl sm:text-4xl font-black text-gray-100 mb-3">
+        <h1 className="text-3xl sm:text-4xl font-black text-heading mb-3">
           DMCA &amp; Disclaimer
         </h1>
         <p className="text-sm text-muted">Last updated: February 2026</p>
       </div>
 
-      <div className="space-y-8 text-sm text-gray-300 leading-relaxed">
+      <div className="space-y-8 text-sm text-text-secondary leading-relaxed">
         {/* Disclaimer */}
         <section className="cyber-card rounded-lg p-6">
-          <h2 className="text-lg font-black text-gray-100 mb-3 flex items-center gap-2">
+          <h2 className="text-lg font-black text-heading mb-3 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-neon-red" />
             Disclaimer
           </h2>
@@ -44,7 +44,7 @@ export default function DMCA() {
 
         {/* DMCA */}
         <section className="cyber-card rounded-lg p-6">
-          <h2 className="text-lg font-black text-gray-100 mb-3 flex items-center gap-2">
+          <h2 className="text-lg font-black text-heading mb-3 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-neon-cyan" />
             DMCA Notice
           </h2>
@@ -82,7 +82,7 @@ export default function DMCA() {
 
         {/* Copyright */}
         <section className="cyber-card rounded-lg p-6">
-          <h2 className="text-lg font-black text-gray-100 mb-3 flex items-center gap-2">
+          <h2 className="text-lg font-black text-heading mb-3 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-neon-purple" />
             Copyright Notice
           </h2>
@@ -101,7 +101,7 @@ export default function DMCA() {
 
         {/* Terms */}
         <section className="cyber-card rounded-lg p-6">
-          <h2 className="text-lg font-black text-gray-100 mb-3 flex items-center gap-2">
+          <h2 className="text-lg font-black text-heading mb-3 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-neon-green" />
             Terms of Use
           </h2>
@@ -125,7 +125,7 @@ export default function DMCA() {
 
         {/* Contact */}
         <section className="cyber-card rounded-lg p-6">
-          <h2 className="text-lg font-black text-gray-100 mb-3 flex items-center gap-2">
+          <h2 className="text-lg font-black text-heading mb-3 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-neon-yellow" />
             Contact
           </h2>

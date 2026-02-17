@@ -78,7 +78,7 @@ export default async function Home() {
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight mb-5">
-              <span className="block text-gray-100">Watch Live Sports</span>
+              <span className="block text-heading">Watch Live Sports</span>
               <span className="block cyber-gradient">Anytime, Anywhere</span>
             </h1>
 
@@ -155,13 +155,13 @@ export default async function Home() {
                     </span>
                   </div>
                   {/* Title */}
-                  <h3 className="text-sm font-bold text-gray-200 mb-3 line-clamp-2 leading-snug">{match.title}</h3>
+                  <h3 className="text-sm font-bold text-text-primary mb-3 line-clamp-2 leading-snug">{match.title}</h3>
                   {/* Teams */}
                   {match.teams && (
                     <div className="flex items-center justify-between mb-4 text-xs">
-                      <span className="font-semibold text-gray-300 truncate flex-1 text-center">{match.teams.home?.name || "TBA"}</span>
+                      <span className="font-semibold text-text-secondary truncate flex-1 text-center">{match.teams.home?.name || "TBA"}</span>
                       <span className="text-muted font-bold mx-2 text-[10px]">VS</span>
-                      <span className="font-semibold text-gray-300 truncate flex-1 text-center">{match.teams.away?.name || "TBA"}</span>
+                      <span className="font-semibold text-text-secondary truncate flex-1 text-center">{match.teams.away?.name || "TBA"}</span>
                     </div>
                   )}
                   {/* Watch btn */}
@@ -197,7 +197,7 @@ export default async function Home() {
                 style={{ animationDelay: `${index * 60}ms` }}
               >
                 <div className="text-2xl mb-2 group-hover:scale-110 transition-transform">{icon}</div>
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-300 group-hover:text-white transition-colors">
+                <span className="text-xs font-bold uppercase tracking-wider text-text-secondary group-hover:text-foreground transition-colors">
                   {sport.name}
                 </span>
               </Link>
@@ -220,7 +220,7 @@ export default async function Home() {
                   <span className="dot" />
                   FEATURED
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-black text-gray-100 mb-2 leading-tight">
+                <h2 className="text-2xl sm:text-3xl font-black text-heading mb-2 leading-tight">
                   {liveMatches[0].title}
                 </h2>
                 {liveMatches[0].teams && (
@@ -253,7 +253,7 @@ export default async function Home() {
                         {liveMatches[0].teams.home.name?.split(" ").map(w => w[0]).join("").substring(0,2).toUpperCase()}
                       </span>
                     </div>
-                    <span className="text-xs font-bold text-gray-400 block truncate max-w-[80px]">{liveMatches[0].teams.home.name}</span>
+                    <span className="text-xs font-bold text-text-tertiary block truncate max-w-[80px]">{liveMatches[0].teams.home.name}</span>
                   </div>
                 )}
                 <span className="text-2xl font-black cyber-gradient">VS</span>
@@ -264,7 +264,7 @@ export default async function Home() {
                         {liveMatches[0].teams.away.name?.split(" ").map(w => w[0]).join("").substring(0,2).toUpperCase()}
                       </span>
                     </div>
-                    <span className="text-xs font-bold text-gray-400 block truncate max-w-[80px]">{liveMatches[0].teams.away.name}</span>
+                    <span className="text-xs font-bold text-text-tertiary block truncate max-w-[80px]">{liveMatches[0].teams.away.name}</span>
                   </div>
                 )}
               </div>

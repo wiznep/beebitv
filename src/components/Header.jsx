@@ -36,7 +36,7 @@ export default function Header() {
                   "⚽ Champions League — Round of 16 Live Now",
                   "🏏 T20 World Cup 2026 — Group Stage Matches Today",
                 ].map((item, i) => (
-                  <span key={i} className="text-muted hover:text-gray-300 transition-colors cursor-default">{item}</span>
+                  <span key={i} className="text-muted hover:text-text-secondary transition-colors cursor-default">{item}</span>
                 ))}
               </div>
             </div>
@@ -55,7 +55,7 @@ export default function Header() {
               <span className="text-white font-black text-sm leading-none">S</span>
             </div>
             <div className="hidden sm:flex flex-col">
-              <span className="text-sm font-black tracking-wider text-gray-100 leading-none">BEEBI TV</span>
+              <span className="text-sm font-black tracking-wider text-heading leading-none">BEEBI TV</span>
               <span className="text-[9px] font-medium tracking-[0.2em] text-muted uppercase">StreamMed</span>
             </div>
           </Link>
@@ -66,7 +66,7 @@ export default function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-neon-cyan transition-colors rounded-md hover:bg-neon-cyan/5"
+                className="px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-text-tertiary hover:text-neon-cyan transition-colors rounded-md hover:bg-neon-cyan/5"
               >
                 {link.label}
               </Link>
@@ -113,7 +113,7 @@ export default function Header() {
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden w-9 h-9 rounded-md bg-surface-2 border border-border flex items-center justify-center text-gray-400 hover:text-neon-cyan transition-colors"
+              className="md:hidden w-9 h-9 rounded-md bg-surface-2 border border-border flex items-center justify-center text-text-tertiary hover:text-neon-cyan transition-colors"
               aria-label="Menu"
             >
               {mobileOpen ? (
@@ -135,7 +135,7 @@ export default function Header() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-4 py-3 text-sm font-bold uppercase tracking-wider text-gray-300 hover:text-neon-cyan hover:bg-neon-cyan/5 rounded-lg transition-colors"
+                className="block px-4 py-3 text-sm font-bold uppercase tracking-wider text-text-secondary hover:text-neon-cyan hover:bg-neon-cyan/5 rounded-lg transition-colors"
               >
                 {link.label}
               </Link>

@@ -28,7 +28,7 @@ export default function StreamPlayer({ streams, source, id, matchSources = [] })
                 className={`px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-wider font-mono transition-all ${
                   src.source === source
                     ? "bg-neon-red/15 border border-neon-red/50 text-neon-red shadow-[0_0_10px_rgba(255,45,45,0.2)]"
-                    : "bg-surface-2 border border-white/10 text-muted hover:text-neon-red hover:border-neon-red/30"
+                    : "bg-surface-2 border border-border text-muted hover:text-neon-red hover:border-neon-red/30"
                 }`}
               >
                 {src.source}
@@ -45,7 +45,7 @@ export default function StreamPlayer({ streams, source, id, matchSources = [] })
       {/* Player */}
       <div className="mb-6">
         {selectedStream?.embedUrl ? (
-          <div className="relative pt-[56.25%] bg-[#000] rounded-lg overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(255,45,45,0.05)]">
+          <div className="relative pt-[56.25%] bg-[#000] rounded-lg overflow-hidden border border-border shadow-[0_0_30px_rgba(255,45,45,0.05)]">
             <iframe
               src={selectedStream.embedUrl}
               className="absolute top-0 left-0 w-full h-full border-0"
@@ -55,7 +55,7 @@ export default function StreamPlayer({ streams, source, id, matchSources = [] })
             />
           </div>
         ) : (
-          <div className="h-96 bg-surface-2 rounded-lg flex items-center justify-center border border-white/10">
+          <div className="h-96 bg-surface-2 rounded-lg flex items-center justify-center border border-border">
             <p className="text-muted font-mono text-sm">// NO_EMBED_URL</p>
           </div>
         )}
@@ -72,12 +72,12 @@ export default function StreamPlayer({ streams, source, id, matchSources = [] })
                 className={`group p-4 rounded-lg text-left transition-all duration-300 ${
                 selectedStream?.streamNo === stream.streamNo
                     ? "bg-neon-red/10 border border-neon-red/40 shadow-[0_0_15px_rgba(255,45,45,0.1)]"
-                    : "bg-surface-2 hover:bg-surface-3 border border-white/10 hover:border-neon-red/25"
+                    : "bg-surface-2 hover:bg-surface-3 border border-border hover:border-neon-red/25"
                 }`}
             >
               <div className="flex justify-between items-start mb-2">
                 <div>
-                  <h3 className="font-bold text-sm text-gray-300 font-mono tracking-wide">
+                  <h3 className="font-bold text-sm text-text-secondary font-mono tracking-wide">
                     {stream.streamNo ? `STREAM_${stream.streamNo}` : `STREAM_${i + 1}`}
                   </h3>
                   <div className="flex items-center gap-2 mt-1">
@@ -114,7 +114,7 @@ export default function StreamPlayer({ streams, source, id, matchSources = [] })
             <div className="space-y-3">
               <div className="flex justify-between text-xs font-mono">
                 <span className="text-muted">STREAM_NO:</span>
-                <span className="font-bold text-gray-400">#{selectedStream.streamNo}</span>
+                <span className="font-bold text-text-tertiary">#{selectedStream.streamNo}</span>
               </div>
               <div className="flex justify-between text-xs font-mono">
                 <span className="text-muted">QUALITY:</span>
@@ -122,14 +122,14 @@ export default function StreamPlayer({ streams, source, id, matchSources = [] })
                   {selectedStream.hd && (
                     <span className="px-2 py-0.5 text-[10px] bg-neon-red/15 border border-neon-red/30 text-neon-red rounded-lg font-bold">HD</span>
                   )}
-                  <span className="font-bold text-gray-400">
+                  <span className="font-bold text-text-tertiary">
                     {selectedStream.hd ? "HIGH_DEF" : "STANDARD"}
                   </span>
                 </div>
               </div>
               <div className="flex justify-between text-xs font-mono">
                 <span className="text-muted">LANGUAGE:</span>
-                <span className="font-bold text-gray-400">
+                <span className="font-bold text-text-tertiary">
                   {selectedStream.language || "AUTO"}
                 </span>
               </div>
@@ -138,7 +138,7 @@ export default function StreamPlayer({ streams, source, id, matchSources = [] })
             <div className="space-y-3">
               <div className="flex justify-between text-xs font-mono">
                 <span className="text-muted">VIEWERS:</span>
-                <span className="font-bold text-gray-400">{selectedStream.viewers || 0}</span>
+                <span className="font-bold text-text-tertiary">{selectedStream.viewers || 0}</span>
               </div>
               <div className="flex justify-between text-xs font-mono">
                 <span className="text-muted">SOURCE:</span>

@@ -81,7 +81,7 @@ function CountdownTimer({ date }) {
   }, [date]);
 
   if (!timeLeft.hasStarted && timeLeft.hasStarted !== false) {
-    return <span className="text-sm text-gray-400">Loading...</span>;
+    return <span className="text-sm text-text-tertiary">Loading...</span>;
   }
 
   if (timeLeft.hasStarted) {
@@ -104,7 +104,7 @@ function CountdownTimer({ date }) {
 
   if (timeLeft.days > 1) {
     return (
-      <span className="text-sm text-gray-400">
+      <span className="text-sm text-text-tertiary">
         {new Date(date).toLocaleDateString(undefined, {
           weekday: "short",
           month: "short",
@@ -237,7 +237,7 @@ function TeamBadge({ team, isHome = true }) {
 //     <div className="relative">
 //       <button
 //         onClick={() => setShowPoster(!showPoster)}
-//         className="text-xs px-2 py-1 bg-gray-700 hover:bg-gray-600 rounded text-gray-300 transition"
+//         className="text-xs px-2 py-1 bg-gray-700 hover:bg-gray-600 rounded text-text-secondary transition"
 //       >
 //         {showPoster ? "Hide Poster" : "Show Poster"}
 //       </button>
@@ -254,14 +254,14 @@ function TeamBadge({ team, isHome = true }) {
 //               onError={(e) => {
 //                 console.error(`Failed to load poster for ${title}:`, posterUrl);
 //                 e.target.parentElement.innerHTML = `
-//                   <div class="w-full h-full flex items-center justify-center bg-gray-800 rounded text-gray-400 text-sm">
+//                   <div class="w-full h-full flex items-center justify-center bg-gray-800 rounded text-text-tertiary text-sm">
 //                     No poster available
 //                   </div>
 //                 `;
 //               }}
 //             />
 //           </div>
-//           <div className="text-xs text-gray-400 mt-2 text-center">
+//           <div className="text-xs text-text-tertiary mt-2 text-center">
 //             Click outside to close
 //           </div>
 //         </div>
@@ -440,7 +440,7 @@ export default function Matches({ params }) {
           value={sport}
           onChange={(e) => router.push(`/matches/${e.target.value}`)}
           disabled={loadingSports}
-          className="text-lg font-black bg-surface-2 border border-white/10 rounded-lg px-4 py-2.5 outline-none cursor-pointer text-white hover:border-neon-red/50 focus:ring-1 focus:ring-neon-red/50 transition font-mono uppercase tracking-wider appearance-none"
+          className="text-lg font-black bg-surface-2 border border-border rounded-lg px-4 py-2.5 outline-none cursor-pointer text-foreground hover:border-neon-red/50 focus:ring-1 focus:ring-neon-red/50 transition font-mono uppercase tracking-wider appearance-none"
           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ff2d2d' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', paddingRight: '2.5rem' }}
           aria-label="Select sport category"
         >
@@ -462,13 +462,13 @@ export default function Matches({ params }) {
             placeholder="SEARCH MATCHES..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full sm:w-80 px-4 py-2.5 bg-surface-2 border border-white/10 rounded-lg text-gray-200 placeholder-gray-600 focus:outline-none focus:border-neon-red/50 focus:shadow-[0_0_15px_rgba(255,45,45,0.1)] transition font-mono text-sm tracking-wider pr-10"
+            className="w-full sm:w-80 px-4 py-2.5 bg-surface-2 border border-border rounded-lg text-text-primary placeholder-text-subtle focus:outline-none focus:border-neon-red/50 focus:shadow-[0_0_15px_rgba(255,45,45,0.1)] transition font-mono text-sm tracking-wider pr-10"
             aria-label="Search matches"
           />
           {searchTerm && (
             <button
               onClick={() => setSearchTerm("")}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-neon-red transition"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-text-subtle hover:text-neon-red transition"
               aria-label="Clear search"
             >
               ✕
@@ -487,10 +487,10 @@ export default function Matches({ params }) {
           <div className="text-5xl mb-4 animate-neon-pulse">
             {searchTerm ? "⌕" : "◇"}
           </div>
-          <h2 className="text-lg font-black text-gray-400 mb-2 font-mono tracking-wider uppercase">
+          <h2 className="text-lg font-black text-text-tertiary mb-2 font-mono tracking-wider uppercase">
             {searchTerm ? "NO MATCHES FOUND" : "NO MATCHES AVAILABLE"}
           </h2>
-          <p className="text-gray-600 mb-6 max-w-md mx-auto font-mono text-xs">
+          <p className="text-text-subtle mb-6 max-w-md mx-auto font-mono text-xs">
             {searchTerm
               ? `No results for "${searchTerm}". Adjust your query.`
               : `No ${sport} matches scheduled. Check back later.`}
@@ -513,7 +513,7 @@ export default function Matches({ params }) {
             >
               {/* Match header with title and countdown */}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
-                <h2 className="font-black text-lg tracking-wide text-gray-200">{match.title}</h2>
+                <h2 className="font-black text-lg tracking-wide text-text-primary">{match.title}</h2>
                 <div className="flex items-center gap-3">
                   <CountdownTimer date={match.date} />
                 </div>
@@ -521,12 +521,12 @@ export default function Matches({ params }) {
 
               {/* Teams display with badges */}
               {match.teams && (
-                <div className="flex items-center justify-between mb-5 p-4 bg-surface-2/60 rounded-lg border border-white/5">
+                <div className="flex items-center justify-between mb-5 p-4 bg-surface-2/60 rounded-lg border border-separator">
                   {/* Home Team */}
                   <div className="flex flex-col items-center gap-2 flex-1">
                     <TeamBadge team={match.teams.home} isHome={true} />
                     <div className="text-center">
-                      <span className="font-bold text-base block text-gray-200">
+                      <span className="font-bold text-base block text-text-primary">
                         {match.teams.home?.name || "Home"}
                       </span>
                       <span className="text-xs text-neon-cyan font-mono uppercase tracking-wider">
@@ -538,7 +538,7 @@ export default function Matches({ params }) {
                   {/* VS and category */}
                   <div className="mx-4 sm:mx-8 flex flex-col items-center">
                     <div className="text-xl font-black text-neon-red">VS</div>
-                    <div className="text-[10px] text-muted mt-2 px-3 py-1 border border-white/10 rounded-lg font-mono uppercase tracking-widest">
+                    <div className="text-[10px] text-muted mt-2 px-3 py-1 border border-border rounded-lg font-mono uppercase tracking-widest">
                       {match.category
                         ? match.category.toUpperCase()
                         : sport.toUpperCase()}
@@ -549,7 +549,7 @@ export default function Matches({ params }) {
                   <div className="flex flex-col items-center gap-2 flex-1">
                     <TeamBadge team={match.teams.away} isHome={false} />
                     <div className="text-center">
-                      <span className="font-bold text-base block text-gray-200">
+                      <span className="font-bold text-base block text-text-primary">
                         {match.teams.away?.name || "Away"}
                       </span>
                       <span className="text-xs text-neon-red font-mono uppercase tracking-wider">
@@ -561,10 +561,10 @@ export default function Matches({ params }) {
               )}
 
               {/* Match Details */}
-              <div className="mb-5 p-4 bg-surface-2/40 rounded-lg border border-white/5">
+              <div className="mb-5 p-4 bg-surface-2/40 rounded-lg border border-separator">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                   <div className="space-y-2">
-                    <div className="text-xs text-gray-500 font-mono">
+                    <div className="text-xs text-muted font-mono">
                       <span className="text-neon-red/60">MATCH_TIME: </span>
                       {new Date(match.date).toLocaleString(undefined, {
                         weekday: "long",
@@ -606,8 +606,8 @@ export default function Matches({ params }) {
                       <div className="flex items-center justify-center gap-3">
                         <span className="text-xl text-neon-red group-hover:animate-neon-pulse">&#9654;</span>
                         <div className="text-left">
-                          <div className="text-sm uppercase tracking-wider text-gray-200 group-hover:text-neon-red transition-colors">WATCH LIVE</div>
-                          <div className="text-[10px] text-gray-600 font-mono mt-1 tracking-widest">
+                          <div className="text-sm uppercase tracking-wider text-text-primary group-hover:text-neon-red transition-colors">WATCH LIVE</div>
+                          <div className="text-[10px] text-text-subtle font-mono mt-1 tracking-widest">
                             SRC: {source.source.toUpperCase()}
                           </div>
                         </div>
@@ -622,14 +622,14 @@ export default function Matches({ params }) {
                   match.sources.every((s) => !s.source || !s.id)) && (
                   <button
                     disabled
-                    className="flex-1 text-center px-6 py-4 bg-surface-2 border border-white/5 rounded-lg font-bold cursor-not-allowed opacity-30"
+                    className="flex-1 text-center px-6 py-4 bg-surface-2 border border-separator rounded-lg font-bold cursor-not-allowed opacity-30"
                     aria-label="No streams available"
                   >
                     <div className="flex items-center justify-center gap-3">
-                      <span className="text-gray-700">&#x25A0;</span>
+                      <span className="text-muted">&#x25A0;</span>
                       <div className="text-left">
-                        <div className="text-sm text-gray-600 uppercase tracking-wider">OFFLINE</div>
-                        <div className="text-[10px] text-gray-700 font-mono mt-1">
+                        <div className="text-sm text-text-subtle uppercase tracking-wider">OFFLINE</div>
+                        <div className="text-[10px] text-muted font-mono mt-1">
                           NO_STREAMS_AVAILABLE
                         </div>
                       </div>
@@ -639,7 +639,7 @@ export default function Matches({ params }) {
               </div>
 
               {/* Additional info */}
-              <div className="mt-4 pt-4 border-t border-white/5 text-[10px] text-muted font-mono">
+              <div className="mt-4 pt-4 border-t border-separator text-[10px] text-muted font-mono">
                 <div className="flex flex-col sm:flex-row justify-between gap-2">
                   <span>
                     // SELECT SOURCE TO INITIALIZE STREAM

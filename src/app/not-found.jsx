@@ -16,7 +16,7 @@ export default function NotFound() {
           </div>
         </div>
 
-        <h2 className="text-xl sm:text-2xl font-black text-gray-200 mb-3 font-mono tracking-wider uppercase">
+        <h2 className="text-xl sm:text-2xl font-black text-heading mb-3 font-mono tracking-wider uppercase">
           Signal Lost
         </h2>
         <p className="text-sm text-muted mb-8 leading-relaxed">
