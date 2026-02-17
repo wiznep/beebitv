@@ -3,7 +3,7 @@
 
 export default function Loading() {
   return (
-    <main className="p-4 md:p-6">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
       {/* Header skeleton */}
       <div className="mb-6">
         <div className="h-8 cyber-skeleton rounded-lg w-48 mb-2"></div>

@@ -401,7 +401,7 @@ export default function Matches({ params }) {
 
   if (loading && !matches.length) {
     return (
-      <main className="p-6">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
           <div className="h-8 cyber-skeleton rounded w-48"></div>
           <div className="h-10 cyber-skeleton rounded w-80"></div>
@@ -417,7 +417,7 @@ export default function Matches({ params }) {
 
   if (error) {
     return (
-      <main className="p-6">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
         <div className="text-center py-12">
           <div className="text-6xl mb-4 animate-neon-pulse">⚠</div>
           <h1 className="text-2xl font-black neon-text-red mb-2 font-mono tracking-wider">SYSTEM ERROR</h1>
@@ -434,7 +434,7 @@ export default function Matches({ params }) {
   }
 
   return (
-    <main className="p-6">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
         <select
           value={sport}
@@ -529,7 +529,7 @@ export default function Matches({ params }) {
                       <span className="font-bold text-base block text-gray-200">
                         {match.teams.home?.name || "Home"}
                       </span>
-                      <span className="text-xs neon-text font-mono uppercase tracking-wider">
+                      <span className="text-xs text-neon-cyan font-mono uppercase tracking-wider">
                         HOME
                       </span>
                     </div>
@@ -565,7 +565,7 @@ export default function Matches({ params }) {
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                   <div className="space-y-2">
                     <div className="text-xs text-gray-500 font-mono">
-                      <span className="text-neon-cyan/60">MATCH_TIME: </span>
+                      <span className="text-neon-red/60">MATCH_TIME: </span>
                       {new Date(match.date).toLocaleString(undefined, {
                         weekday: "long",
                         year: "numeric",
@@ -601,7 +601,6 @@ export default function Matches({ params }) {
                       key={`${source.source}-${source.id}-${index}`}
                       href={`/stream/${encodeURIComponent(source.source)}/${encodeURIComponent(source.id)}`}
                       className="group flex-1 text-center px-6 py-4 bg-gradient-to-r from-neon-red/10 to-neon-cyan/10 border border-neon-red/20 hover:border-neon-red/50 rounded-lg font-bold transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,45,45,0.15)] hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-1 focus:ring-neon-red/50"
-                      style={{ clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))' }}
                       aria-label={`Watch ${match.title} on ${source.source.toUpperCase()}`}
                     >
                       <div className="flex items-center justify-center gap-3">
@@ -645,7 +644,7 @@ export default function Matches({ params }) {
                   <span>
                     // SELECT SOURCE TO INITIALIZE STREAM
                   </span>
-                  <span className="neon-text">
+                  <span className="text-neon-red">
                     [{match.sources?.length || 0}] SOURCE(S)
                   </span>
                 </div>

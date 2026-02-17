@@ -34,13 +34,6 @@ const SPORT_COLORS = [
   "from-neon-magenta/15 to-neon-magenta/5 border-neon-magenta/15 hover:border-neon-magenta/40",
 ];
 
-const BLOG_POSTS = [
-  { title: "Champions League Quarter-Finals Preview", desc: "Analyzing the top matchups and key players to watch this season.", tag: "Football" },
-  { title: "IPL 2026: Top Teams & Players to Watch", desc: "Breaking down the squads and strategies for the upcoming IPL season.", tag: "Cricket" },
-  { title: "NBA Playoffs Bracket Breakdown", desc: "Expert predictions and analysis for every playoff series.", tag: "Basketball" },
-  { title: "WrestleMania 42 Match Card Revealed", desc: "Everything you need to know about WWE's biggest event of the year.", tag: "WWE" },
-];
-
 export default async function Home() {
   let sports = [];
   let liveMatches = [];
@@ -279,70 +272,6 @@ export default async function Home() {
           </div>
         </section>
       )}
-
-      {/* ═══════════════════════════════
-          SPORTS BLOG
-          ═══════════════════════════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
-        <div className="section-label">Latest News</div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {BLOG_POSTS.map((post, i) => (
-            <div key={i} className="cyber-card rounded-lg overflow-hidden group cursor-pointer">
-              {/* Thumbnail placeholder */}
-              <div className="h-36 bg-gradient-to-br from-surface-3 to-surface-2 flex items-center justify-center">
-                <span className="text-4xl opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all">{SPORT_ICONS[post.tag.toLowerCase()] || "🏟️"}</span>
-              </div>
-              <div className="p-4">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-neon-red">{post.tag}</span>
-                <h3 className="text-sm font-bold text-gray-200 mt-1 mb-2 line-clamp-2 leading-snug group-hover:text-neon-cyan transition-colors">{post.title}</h3>
-                <p className="text-xs text-muted leading-relaxed line-clamp-2 mb-3">{post.desc}</p>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-neon-cyan/70 group-hover:text-neon-cyan transition-colors">
-                  Read More →
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════
-          APP PROMOTION
-          ═══════════════════════════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
-        <div className="relative cyber-card rounded-xl overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-neon-red/[0.06] via-transparent to-neon-cyan/[0.06]" />
-          <div className="relative flex flex-col md:flex-row items-center justify-between p-8 sm:p-12 gap-6">
-            <div className="text-center md:text-left max-w-lg">
-              <div className="text-3xl mb-3">📱</div>
-              <h2 className="text-xl sm:text-2xl font-black text-gray-100 mb-2">Stream On Your Phone</h2>
-              <p className="text-sm text-muted mb-5 leading-relaxed">
-                Never miss a match. Watch live sports on the go with our mobile-optimized platform. Instant access, no downloads needed.
-              </p>
-              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                <span className="cyber-btn px-5 py-2.5 text-xs rounded-lg cursor-pointer">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 2.273L12 8l-5.523-5.727A.5.5 0 0 1 6.846 2H7.5L12 6.5 16.5 2h.654a.5.5 0 0 1 .369.273zM12 8l5.523 5.727a.5.5 0 0 1-.369.273H16.5L12 9.5 7.5 14h-.654a.5.5 0 0 1-.369-.273L12 8z"/></svg>
-                  Google Play
-                </span>
-                <span className="cyber-btn px-5 py-2.5 text-xs rounded-lg cursor-pointer">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83z"/></svg>
-                  App Store
-                </span>
-              </div>
-            </div>
-            {/* Phone mockup */}
-            <div className="w-40 h-72 rounded-3xl bg-surface-3 border-2 border-border p-2 shrink-0 hidden md:block">
-              <div className="w-full h-full rounded-2xl bg-gradient-to-b from-neon-red/5 to-surface-2 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-10 h-10 rounded-lg bg-neon-red/20 flex items-center justify-center mx-auto mb-2">
-                    <span className="text-neon-red font-black text-xs">S</span>
-                  </div>
-                  <span className="text-[9px] font-bold text-muted">BEEBI TV</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ═══ Floating Live Button (mobile) ═══ */}
       <Link href="/matches/football" className="floating-live-btn show-mobile-only">

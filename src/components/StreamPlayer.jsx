@@ -11,7 +11,7 @@ export default function StreamPlayer({ streams, source, id, matchSources = [] })
   const showSourceSwitcher = otherSources.length > 1;
 
   return (
-    <main className="p-4 md:p-6">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
       <h1 className="text-xl font-black mb-1 font-mono tracking-wider">
         <span className="neon-text-red">STREAM PLAYER</span>
       </h1>

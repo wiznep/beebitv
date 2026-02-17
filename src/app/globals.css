@@ -1,6 +1,26 @@
 @import "tailwindcss";
 
-:root {
+/* ═══ LIGHT MODE (default / system light) ═══ */
+:root, [data-theme="light"] {
+  --background: #f5f5f8;
+  --foreground: #1a1a2e;
+  --neon-red: #e02020;
+  --neon-cyan: #0097a7;
+  --neon-magenta: #c4007a;
+  --neon-purple: #7c3aed;
+  --neon-blue: #2563eb;
+  --neon-green: #059669;
+  --neon-yellow: #d97706;
+  --surface: #ffffff;
+  --surface-2: #f0f0f5;
+  --surface-3: #e8e8f0;
+  --border: #d4d4e0;
+  --muted: #6b7280;
+  color-scheme: light;
+}
+
+/* ═══ DARK MODE ═══ */
+[data-theme="dark"] {
   --background: #06060e;
   --foreground: #e4e4f0;
   --neon-red: #ff2d2d;
@@ -15,6 +35,28 @@
   --surface-3: #161632;
   --border: #1e1e3a;
   --muted: #6b6b8d;
+  color-scheme: dark;
+}
+
+/* System preference auto-detect (when no data-theme is set yet) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --background: #06060e;
+    --foreground: #e4e4f0;
+    --neon-red: #ff2d2d;
+    --neon-cyan: #00e5ff;
+    --neon-magenta: #ff00aa;
+    --neon-purple: #a855f7;
+    --neon-blue: #3b82f6;
+    --neon-green: #00ff88;
+    --neon-yellow: #facc15;
+    --surface: #0c0c18;
+    --surface-2: #111126;
+    --surface-3: #161632;
+    --border: #1e1e3a;
+    --muted: #6b6b8d;
+    color-scheme: dark;
+  }
 }
 
 @theme inline {
@@ -52,8 +94,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Subtle grid background */
-body::before {
+/* Subtle grid background (dark mode only) */
+[data-theme="dark"] body::before,
+:root:not([data-theme]) body::before {
   content: '';
   position: fixed;
   inset: 0;
@@ -64,9 +107,20 @@ body::before {
   pointer-events: none;
   z-index: 0;
 }
+[data-theme="light"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
 
-/* Faint scanline overlay */
-body::after {
+/* Faint scanline overlay (dark mode only) */
+[data-theme="dark"] body::after {
   content: '';
   position: fixed;
   inset: 0;
@@ -98,6 +152,20 @@ body::after {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--neon-red), var(--neon-cyan));
   border-radius: 10px;
+}
+
+/* ═══ LIGHT MODE OVERRIDES ═══ */
+[data-theme="light"] .cyber-card {
+  background: linear-gradient(145deg, var(--surface), var(--surface-2));
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+[data-theme="light"] .neon-text { text-shadow: none; }
+[data-theme="light"] .neon-text-red { text-shadow: none; }
+[data-theme="light"] .neon-text-green { text-shadow: none; }
+[data-theme="light"] .neon-text-magenta { text-shadow: none; }
+[data-theme="light"] .cyber-skeleton {
+  background: linear-gradient(90deg, #e5e5ea 25%, #f0f0f5 50%, #e5e5ea 75%);
+  background-size: 200% 100%;
 }
 
 /* ═══ ANIMATIONS ═══ */
@@ -179,8 +247,11 @@ body::after {
 }
 .cyber-card:hover {
   border-color: rgba(0,229,255,0.2);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 40px rgba(0,229,255,0.04);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 0 40px rgba(0,229,255,0.04);
   transform: translateY(-2px);
+}
+[data-theme="dark"] .cyber-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 40px rgba(0,229,255,0.04);
 }
 .cyber-card:hover::before {
   opacity: 1;

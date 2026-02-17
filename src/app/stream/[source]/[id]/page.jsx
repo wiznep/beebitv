@@ -32,7 +32,7 @@ export default async function Streams({ params }) {
 
   if (!streams || streams.length === 0) {
     return (
-      <main className="p-6">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
         <div className="max-w-xl mx-auto text-center p-8 cyber-card rounded-lg">
           <div className="text-5xl mb-4 animate-neon-pulse">&#x25C7;</div>
           <h1 className="text-2xl font-black mb-2 neon-text-red font-mono tracking-wider">STREAM NOT FOUND</h1>
